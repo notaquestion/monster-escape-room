@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        GameManager.Self.PC = this;
 	}
 	
 	// Update is called once per frame

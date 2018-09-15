@@ -5,8 +5,8 @@ using UnityEngine;
 public class NarrativeEventManager : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        GameManager.Self.NarrativeManager = this;
 	}
 	
 	// Update is called once per frame

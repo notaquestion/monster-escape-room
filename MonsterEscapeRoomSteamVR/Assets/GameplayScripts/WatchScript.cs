@@ -5,8 +5,8 @@ using UnityEngine;
 public class WatchScript : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        GameManager.Self.Watch = this;
 	}
 	
 	// Update is called once per frame
