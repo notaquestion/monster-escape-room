@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Collections;
 using System.Reflection;
 using Valve.VR;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(Camera))]
 public class SteamVR_Camera : MonoBehaviour
@@ -46,8 +47,11 @@ public class SteamVR_Camera : MonoBehaviour
 
 	void OnEnable()
 	{
-		// Bail if no hmd is connected
-		var vr = SteamVR.instance;
+        Debug.Log(XRSettings.loadedDeviceName);
+        if(XRSettings.loadedDeviceName == "") //(!SteamVR.active)//(SteamVR.connected[0] == false)
+            return;
+        // Bail if no hmd is connected
+        var vr = SteamVR.instance;
 		if (vr == null)
 		{
 			if (head != null)
@@ -94,9 +98,9 @@ public class SteamVR_Camera : MonoBehaviour
 		SteamVR_Render.Add(this);
 	}
 
-	#endregion
+#endregion
 
-	#region Functionality to ensure SteamVR_Camera component is always the last component on an object
+#region Functionality to ensure SteamVR_Camera component is always the last component on an object
 
 	void Awake()
 	{
@@ -151,9 +155,9 @@ public class SteamVR_Camera : MonoBehaviour
 		}
 	}
 
-	#endregion
+#endregion
 
-	#region Expand / Collapse object hierarchy
+#region Expand / Collapse object hierarchy
 
 #if UNITY_EDITOR
 	public bool isExpanded { get { return head != null && transform.parent == head; } }
@@ -272,6 +276,6 @@ public class SteamVR_Camera : MonoBehaviour
 			name = name.Substring(0, name.Length - eyeSuffix.Length);
 	}
 
-	#endregion
+#endregion
 }
 
