@@ -88,7 +88,14 @@ public class OvrAvatarSkinnedMeshPBSV2RenderComponent : OvrAvatarRenderComponent
 
         int componentType = (int)OvrAvatarMaterialManager.GetComponentType(gameObject.name);
 
-        var defaultProperties = AvatarMaterialManager.DefaultAvatarConfig.ComponentMaterialProperties;
+        OvrAvatarMaterialManager.AvatarComponentMaterialProperties[] defaultProperties = {};
+        try
+        {
+            defaultProperties = AvatarMaterialManager.DefaultAvatarConfig.ComponentMaterialProperties;
+        }
+        catch {
+            Debug.Log("aaaaahhhh");
+        }
 
         var diffuseTexture = OvrAvatarComponent.GetLoadedTexture(materialState.albedoTextureID);
         var normalTexture = OvrAvatarComponent.GetLoadedTexture(materialState.normalTextureID);
