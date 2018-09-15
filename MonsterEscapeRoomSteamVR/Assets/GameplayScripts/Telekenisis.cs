@@ -14,7 +14,8 @@ public class Telekenisis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        AttractObject(target.gameObject, 1);
+        if(target != null)
+            AttractObject(target.gameObject, 1);
 	}
 
     void AttractObject(GameObject target, float percent)
