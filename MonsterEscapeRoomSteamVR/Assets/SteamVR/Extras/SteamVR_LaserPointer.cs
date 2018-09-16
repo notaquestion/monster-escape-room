@@ -65,14 +65,17 @@ public class SteamVR_LaserPointer : MonoBehaviour
 
     public virtual void OnPointerIn(PointerEventArgs e)
     {
-        if (PointerIn != null)
-            PointerIn(this, e);
+        transform.root.gameObject.SendMessage("OnPointerEnteredAThing", e);
+
+
+        
+        //PointerIn(this, e);
+
     }
 
     public virtual void OnPointerOut(PointerEventArgs e)
     {
-        if (PointerOut != null)
-            PointerOut(this, e);
+        transform.root.gameObject.SendMessage("OnPointerExitedThing", e);
     }
 
 
@@ -117,6 +120,7 @@ public class SteamVR_LaserPointer : MonoBehaviour
             argsIn.flags = 0;
             argsIn.target = hit.transform;
             OnPointerIn(argsIn);
+            
             previousContact = hit.transform;
         }
         if(!bHit)

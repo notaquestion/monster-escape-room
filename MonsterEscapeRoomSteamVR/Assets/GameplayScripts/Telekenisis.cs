@@ -36,4 +36,6 @@ public class Telekenisis : MonoBehaviour {
 
         target.GetComponent<Rigidbody>().AddForce(VecToThis * PullForce * percent);
     }
+
+
 }
