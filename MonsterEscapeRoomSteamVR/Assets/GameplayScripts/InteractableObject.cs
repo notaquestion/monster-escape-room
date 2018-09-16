@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour {
 
     //puts different glow that grabbableObject when selected
-    public bool breaksOnImpact;
-    public bool interactableObject;
+   
+    public UnityEvent Interact;
 
     public Outline outline;
-    private void Start()
+    private void Awake()
     {
         outline = gameObject.AddComponent<Outline>();
-        outline.enabled = false;
     }
+
+    private void Start()
+    {
+        outline.enabled = false; 
+    }
+
     public void ObjectSelected()
     {
         outline.enabled = true;
@@ -35,9 +41,13 @@ public class InteractableObject : MonoBehaviour {
         outline.OutlineColor = Color.blue;
         outline.OutlineWidth = 9.8f;
     }
-    public void Awake()
+
+    public void InteractWith()
     {
-        
+        Interact.Invoke();
     }
 
 }
+
+
+   
