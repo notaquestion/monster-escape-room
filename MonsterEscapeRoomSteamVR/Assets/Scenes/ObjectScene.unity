@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,7 +293,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4611440650468064, guid: c2f0ae762a9ff4149a2f3789c5c1b31b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: 1.827
       objectReference: {fileID: 0}
     - target: {fileID: 4611440650468064, guid: c2f0ae762a9ff4149a2f3789c5c1b31b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -324,6 +324,10 @@ Prefab:
       propertyPath: Interact.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1513711014}
+    - target: {fileID: 1412981428750900, guid: c2f0ae762a9ff4149a2f3789c5c1b31b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2f0ae762a9ff4149a2f3789c5c1b31b, type: 2}
   m_IsPrefabAsset: 0
@@ -385,6 +389,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1098644540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114554311698406516, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1494648386}
+  m_Script: {fileID: 11500000, guid: b754b131749ca4f4287808c49737cc4f, type: 3}
 --- !u!1 &1300959253
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +474,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1300959253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.83, y: 0.7, z: 0.16}
   m_LocalScale: {x: 20, y: 0.5, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
@@ -483,7 +493,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -581,6 +591,7 @@ GameObject:
   - component: {fileID: 1737194427}
   - component: {fileID: 1737194426}
   - component: {fileID: 1737194430}
+  - component: {fileID: 1737194431}
   m_Layer: 0
   m_Name: PullMe
   m_TagString: Untagged
@@ -649,7 +660,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1737194425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.09, z: 3.68}
+  m_LocalPosition: {x: 0, y: 2.51, z: 1.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -670,3 +681,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1737194431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737194425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3084713dc2f2f49a8c07f358644cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breaksOnImpact: 1
+  grabbableObject: 0
+  nameOfCombinableObject: 
+  objectsToSpawn:
+  - {fileID: 1323608309969794, guid: b69799b6680a89d468a5de91640dd387, type: 2}
+  - {fileID: 1925195702163114, guid: 67e2cb687ba4afc4ca227ab5848aeb95, type: 2}
+  - {fileID: 1576617969557092, guid: ebb2c3175a4c6d44b893dfc76330ddb0, type: 2}
+  - {fileID: 1243259935979854, guid: da536aa57b3c6824093ab141245a54ba, type: 2}
+  Interact:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1098644540}
+        m_MethodName: AssignTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1737194425}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  outline: {fileID: 0}

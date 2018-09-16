@@ -55,9 +55,12 @@ public class GrabbableObject : MonoBehaviour {
         {
             foreach (GameObject g in objectsToSpawn)
             {
-                Instantiate(g);
+                Instantiate(g, g.transform.position, Quaternion.identity);
             }
-             Destroy(gameObject);
+            if (gameObject.name != "ExplodingChair")
+                Destroy(gameObject);
+            else
+                SendMessage("Explode", transform);
 
          }
     }
