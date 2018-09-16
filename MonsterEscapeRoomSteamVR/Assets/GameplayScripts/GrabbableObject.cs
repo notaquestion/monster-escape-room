@@ -9,9 +9,12 @@ public class GrabbableObject : MonoBehaviour {
     public bool grabbableObject;
     public string nameOfCombinableObject;
     public List<GameObject> objectsToSpawn = new List<GameObject>();
-    private bool hasBeenPickedUp;
+
+    int TimesHit = 0;
 
     public UnityEvent Interact;
+
+
 
     public Outline outline;
     public void Awake()
@@ -45,17 +48,25 @@ public class GrabbableObject : MonoBehaviour {
     public void InteractWith()
     {
         Interact.Invoke();
-        hasBeenPickedUp = true;
+
+
+        GameObject.Find("TelekensisOrigin").GetComponent<Telekenisis>().AssignTarget(gameObject);
         
         
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (breaksOnImpact == true && hasBeenPickedUp == true)
+        if (breaksOnImpact == true)
         {
+            ++TimesHit;
+
+            if (TimesHit < 3)
+                return;
+
             foreach (GameObject g in objectsToSpawn)
             {
-                Instantiate(g, g.transform.position, Quaternion.identity);
+                Instantiate(g, GameObject.Find("VRCamera").transform.position + GameObject.Find("VRCamera").transform.forward *1 , Quaternion.identity);
+                Debug.Log("Cubes spawn at " + g.transform.position);
             }
             if (gameObject.name != "ExplodingChair")
                 Destroy(gameObject);

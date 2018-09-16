@@ -22,6 +22,9 @@ public class Telekenisis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (LeftController == null)
+            return;
+
         if(target != null)
             AttractObject(target.gameObject, 1);
 
@@ -59,7 +62,8 @@ public class Telekenisis : MonoBehaviour {
 
     public void shootTarget()
     {
-        target.GetComponent<Rigidbody>().velocity = target.transform.forward * 6;
+        if(target != null)
+            target.GetComponent<Rigidbody>().velocity = target.transform.forward * 6;
     }
 
     public void ForgetTarget()
