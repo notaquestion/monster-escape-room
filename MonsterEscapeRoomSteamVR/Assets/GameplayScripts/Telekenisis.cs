@@ -7,8 +7,16 @@ public class Telekenisis : MonoBehaviour {
 
     public float PullForce = 100;
 
-	// Use this for initialization
-	void Start () {
+    private SteamVR_Controller.Device LeftController
+    {
+        get
+        {
+            return GameObject.Find("Hand1").GetComponent<Valve.VR.InteractionSystem.Hand>().controller;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,6 +24,9 @@ public class Telekenisis : MonoBehaviour {
 	void Update () {
         if(target != null)
             AttractObject(target.gameObject, 1);
+
+        if (LeftController.GetHairTriggerUp())
+            ForgetTarget();
 	}
 
     void AttractObject(GameObject target, float percent)
@@ -37,5 +48,14 @@ public class Telekenisis : MonoBehaviour {
         target.GetComponent<Rigidbody>().AddForce(VecToThis * PullForce * percent);
     }
 
+    public void AssignTarget(GameObject target_)
+    {
+        target = target_.transform;
+    }
+
+    public void ForgetTarget()
+    {
+        target = null;
+    }
 
 }

@@ -12,7 +12,20 @@ public class PlayerController : MonoBehaviour {
 
     bool subscribed = false;
 
-    List<string> PointingAt = new List<string>();
+    List<GameObject> PointingAt = new List<GameObject>();
+
+    
+
+    private SteamVR_Controller.Device LeftController
+    {
+        get
+        {
+            //Debug.Log(GameObject.Find("Hand1").GetComponent<Valve.VR.InteractionSystem.Hand>());
+            return GameObject.Find("Hand1").GetComponent<Valve.VR.InteractionSystem.Hand>().controller;
+        }
+    }
+
+    
 
     // Use this for initialization
     void Start () {
@@ -26,23 +39,48 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //if(LeftLaser.PointerIn != null)
-        {
-            //Subscribe();
-            subscribed = true;
-        }
-		
+
+        while (PointingAt.Remove(null)) 
+
         if(PointingAt.Count > 0)
         {
-            UI_Pointing_Text.text = PointingAt[0];
+            UI_Pointing_Text.text = PointingAt[0].name;
         }
-        
-        //SteamVR_ControllerManager
+
+        if (LeftController == null)
+            return;
+
+        LeftController.hairTriggerDelta = 0.1f;
+
+        Debug.Log(LeftController.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger));
+
+        if(LeftController.GetHairTriggerDown())
+        {
+
+            foreach(GameObject g in PointingAt)
+            {
+                GrabbableObject grab = g.GetComponent<GrabbableObject>();
+                InteractableObject inte = g.GetComponent<InteractableObject>();
+
+                if (grab != null)
+                {
+                    grab.InteractWith();
+                }
+                else if (inte != null)
+                {
+                    inte.InteractWith();
+                }
+            }
+        }
+        else if (LeftController.GetHairTriggerUp())
+        {
+
+        }
 	}
 
     void OnPointerEnteredAThing(PointerEventArgs e)
     {
-        PointingAt.Add(e.target.gameObject.name);
+        PointingAt.Add(e.target.gameObject);
 
         GrabbableObject grab = e.target.gameObject.GetComponent<GrabbableObject>();
         InteractableObject inte = e.target.gameObject.GetComponent<InteractableObject>();
@@ -59,7 +97,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnPointerExitedThing(PointerEventArgs e)
     {
-        PointingAt.Remove(e.target.gameObject.name);
+        PointingAt.Remove(e.target.gameObject);
 
 
         GrabbableObject grab = e.target.gameObject.GetComponent<GrabbableObject>();
