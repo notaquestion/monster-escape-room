@@ -7,7 +7,10 @@ public class DoThingsOnCollide : MonoBehaviour {
 
     public string OtherObject;
 
-    public UnityEvent OnCollideWithObject; 
+    public UnityEvent OnCollideWithObject;
+
+    public bool DestoryAndMakePrefab;
+    public GameObject InstantiateThis;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +27,14 @@ public class DoThingsOnCollide : MonoBehaviour {
         if(other.gameObject.name == OtherObject)
         {
             OnCollideWithObject.Invoke();
+
+            if(DestoryAndMakePrefab)
+            {
+                Instantiate(InstantiateThis, transform.position, transform.rotation);
+
+                Destroy(other.gameObject);
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 }

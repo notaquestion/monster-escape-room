@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114415863110791348}
   - component: {fileID: 82735524043084222}
   - component: {fileID: 114248758322172316}
+  - component: {fileID: 65396043363881274}
   m_Layer: 0
   m_Name: Tape_Recorder
   m_TagString: Untagged
@@ -96,7 +97,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f3c2a9fa475ac0643afd2266d1537708, type: 3}
+  - {fileID: 2100000, guid: 1d8ad402e2faa5540b0ead28e9f0c499, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,6 +161,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65396043363881274
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1362991621277084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8480709, y: 1.5039487, z: 0.7654282}
+  m_Center: {x: 0.00000014901161, y: -0.0000018775463, z: 0.0000037252903}
 --- !u!65 &65633394107902916
 BoxCollider:
   m_ObjectHideFlags: 1

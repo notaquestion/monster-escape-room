@@ -36,9 +36,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351401654764796}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.056529704, y: 1.1248, z: 0.25169647}
-  m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.10000001}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -1.2093283, y: 1.1497142, z: 1.7847193}
+  m_LocalScale: {x: 0.14285712, y: 0.14285713, z: 0.14285715}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,3 +105,5 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  DestoryAndMakePrefab: 0
+  InstantiateThis: {fileID: 0}
