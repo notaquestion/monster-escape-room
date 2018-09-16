@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class BecomeThrowable : MonoBehaviour {
 
@@ -16,6 +17,6 @@ public class BecomeThrowable : MonoBehaviour {
 
     public void MakeThrowable()
     {
-        gameObject.AddComponent<Valve.VR.InteractionSystem.Throwable>();
+        gameObject.AddComponent<Throwable>();
     }
 }

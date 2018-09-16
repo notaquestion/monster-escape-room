@@ -73,11 +73,11 @@ public class GrabbableObject : MonoBehaviour {
 
             foreach (GameObject g in objectsToSpawn)
             {
-                Instantiate(g, GameObject.Find("VRCamera").transform.position + GameObject.Find("VRCamera").transform.forward *1 , Quaternion.identity);
-                Debug.Log("Cubes spawn at " + g.transform.position);
+                Instantiate(g, gameObject.transform.position + new Vector3(0, 1, 0) , Quaternion.identity);
+                //Debug.Log("Cubes spawn at " + g.transform.position);
             }
             if (gameObject.name != "ExplodingChair")
-                Destroy(gameObject);
+                Destroy(gameObject, 0.1f);
             else
                 SendMessage("Explode", transform);
 
