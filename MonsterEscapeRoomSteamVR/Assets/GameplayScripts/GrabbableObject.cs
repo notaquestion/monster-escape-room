@@ -7,6 +7,9 @@ public class GrabbableObject : MonoBehaviour {
     //puts glow around object when selected
     public bool breaksOnImpact;
     public bool grabbableObject;
+    public string nameOfCombinableObject;
+    public List<GameObject> objectsToSpawn = new List<GameObject>();
+    private bool hasBeenPickedUp;
 
     public UnityEvent Interact;
 
@@ -42,6 +45,23 @@ public class GrabbableObject : MonoBehaviour {
     public void InteractWith()
     {
         Interact.Invoke();
+        hasBeenPickedUp = true;
+        
+        
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (breaksOnImpact == true && hasBeenPickedUp == true)
+        {
+            foreach (GameObject g in objectsToSpawn)
+            {
+                Instantiate(g, g.transform.position, Quaternion.identity);
+            }
+            if (gameObject.name != "ExplodingChair")
+                Destroy(gameObject);
+            else
+                SendMessage("Explode", transform);
 
+         }
+    }
 }

@@ -3,24 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChairExplosion : MonoBehaviour {
-    /*
-    GameObject ParentGameObject = this.gameObject;
-    GameObject chairPart1 = ParentGameObject.transform.GetChild(0).gameObject;
-    GameObject chairPart2 = ParentGameObject.transform.GetChild(1).gameObject;
-    GameObject chairPart3 = ParentGameObject.transform.GetChild(0).gameObject;
-    GameObject chairPart4 = ParentGameObject.transform.GetChild(1).gameObject;
-    // Use this for initialization
-    public void chairExplodes()
+
+    private void Start()
     {
-        chairPart1
+        //Explode(transform);
     }
-    
-    void Start () {
-        
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+
+            Explode(transform);
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		*/
+
+    public void Explode(Transform t)
+    {
+        int originalChildCount = t.childCount;
+        for(int i = 0; i < originalChildCount ; ++i)
+        {
+            t.GetChild(i).gameObject.AddComponent<Rigidbody>().AddForce(new Vector3(Random.value, Random.value, Random.value) * 200f);
+            t.GetChild(i).gameObject.AddComponent<BoxCollider>();
+
+
+            //t.GetChild(0).SetParent(null);
+            Destroy(t.GetChild(i).gameObject, 3);
+            
+            //Explode(t);
+        }
+        transform.DetachChildren();
+        GetComponent<Collider>().enabled = false;
+    }
 	
 }
