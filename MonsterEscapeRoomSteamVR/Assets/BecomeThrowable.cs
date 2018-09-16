@@ -18,5 +18,7 @@ public class BecomeThrowable : MonoBehaviour {
     public void MakeThrowable()
     {
         gameObject.AddComponent<Throwable>();
+
+        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

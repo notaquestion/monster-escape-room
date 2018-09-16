@@ -158,6 +158,7 @@ namespace Valve.VR.InteractionSystem
 		{
 			attached = false;
 
+            if(onDetachFromHand != null)
 			onDetachFromHand.Invoke();
 
 			hand.HoverUnlock( null );
