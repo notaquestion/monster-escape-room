@@ -1,15 +1,40 @@
 fileFormatVersion: 2
-guid: 859eb83979c80584b9fcc5fcb401f326
+guid: e3b18430a5f4042428a51a6aa958b480
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: bottom
+    100004: pCylinder1
+    100006: polySurface1
+    100008: polySurface2
+    100010: pPlane1
+    100012: pSphere1
+    100014: transform1
     400000: //RootNode
-    2100000: blinn4
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: ducky:polySurface1
-    6400000: //RootNode
+    400002: bottom
+    400004: pCylinder1
+    400006: polySurface1
+    400008: polySurface2
+    400010: pPlane1
+    400012: pSphere1
+    400014: transform1
+    2000000: bottom
+    2100000: lambert2
+    2100002: lambert1
+    2100004: lambert3
+    2300000: pCylinder1
+    2300002: polySurface1
+    2300004: polySurface2
+    2300006: pSphere1
+    3300000: pCylinder1
+    3300002: polySurface1
+    3300004: polySurface2
+    3300006: pSphere1
+    4300000: pSphere1
+    4300002: polySurface1
+    4300004: polySurface2
+    4300006: pCylinder1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +68,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
