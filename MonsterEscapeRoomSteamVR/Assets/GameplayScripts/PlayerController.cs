@@ -49,16 +49,29 @@ public class PlayerController : MonoBehaviour {
 
         if (grab != null)
         {
-           
+            grab.ObjectSelected();
         }
         else if (inte != null)
         {
-
+            inte.ObjectSelected();
         }
     }
 
     void OnPointerExitedThing(PointerEventArgs e)
     {
         PointingAt.Remove(e.target.gameObject.name);
+
+
+        GrabbableObject grab = e.target.gameObject.GetComponent<GrabbableObject>();
+        InteractableObject inte = e.target.gameObject.GetComponent<InteractableObject>();
+
+        if (grab != null)
+        {
+            grab.ObjectDeselected();
+        }
+        else if (inte != null)
+        {
+            inte.ObjectDeselected();
+        }
     }
 }
