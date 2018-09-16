@@ -8,7 +8,10 @@ public class NarrativeEventManager : MonoBehaviour {
 	void Awake () {
         GameManager.Self.NarrativeManager = this;
 	}
-	
+	public void PlayEvent(int index)
+    {
+
+    }
 	// Update is called once per frame
 	void Update () {
 		
