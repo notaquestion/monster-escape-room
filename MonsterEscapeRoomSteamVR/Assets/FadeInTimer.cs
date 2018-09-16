@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FadeInTimer : MonoBehaviour {
-    public float timer=0;
+    public float timer;
     public Text myText;
-    public float red = 0;
+    public float red ;
 
 
 
 	// Use this for initialization
 	void Start () {
+        timer = 0;
+        red = 0;
         Color startColor = new Color(0, 0, 0);
         myText.color = startColor;
 	}
