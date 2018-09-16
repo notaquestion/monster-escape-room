@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     public NarrativeEventManager NarrativeManager;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         if (Self != null)
         {
             Debug.LogWarning("NOT THE ONLY GAME MANGAGER");
