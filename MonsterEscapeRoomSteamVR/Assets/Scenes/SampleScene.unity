@@ -3015,7 +3015,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 94042dbbceeb1cb44a9f4e8803638fca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97b3924c0592fb144a7a8266704a09cd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.602
   m_Pitch: 1
@@ -5450,6 +5450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfaed96775150f42a898a72e22f506b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextSceneName: Scene2
 --- !u!114 &269363251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11161,7 +11162,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4b164ab6afb7c9947ac14040e0541b5d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.112
+  m_Volume: 0.033
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16034,7 +16035,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 821635853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12573434dcabb184dace44858689768b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2360b215869006448bbb0d1b1b88d85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OtherObject: Door
