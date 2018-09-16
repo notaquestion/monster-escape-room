@@ -5,6 +5,8 @@ using UnityEngine;
 public class Telekenisis : MonoBehaviour {
     public Transform target;
 
+
+
     public float PullForce = 100;
 
     private SteamVR_Controller.Device LeftController
@@ -59,7 +61,15 @@ public class Telekenisis : MonoBehaviour {
 
     public void shootTarget()
     {
-        target.GetComponent<Rigidbody>().velocity = target.transform.forward * 6;
+
+
+        target.rotation = LeftController.transform.rot;
+        
+
+        
+
+
+        target.GetComponent<Rigidbody>().velocity = target.transform.forward*-15;
     }
 
     public void ForgetTarget()
