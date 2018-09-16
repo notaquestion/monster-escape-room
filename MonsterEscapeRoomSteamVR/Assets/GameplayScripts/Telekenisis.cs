@@ -26,7 +26,11 @@ public class Telekenisis : MonoBehaviour {
             AttractObject(target.gameObject, 1);
 
         if (LeftController.GetHairTriggerUp())
+        {
+            shootTarget();
             ForgetTarget();
+        }
+            
 	}
 
     void AttractObject(GameObject target, float percent)
@@ -51,6 +55,11 @@ public class Telekenisis : MonoBehaviour {
     public void AssignTarget(GameObject target_)
     {
         target = target_.transform;
+    }
+
+    public void shootTarget()
+    {
+        target.GetComponent<Rigidbody>().velocity = target.transform.forward * 6;
     }
 
     public void ForgetTarget()
