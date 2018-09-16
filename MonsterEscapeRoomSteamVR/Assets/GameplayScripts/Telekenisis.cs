@@ -25,6 +25,9 @@ public class Telekenisis : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (LeftController == null)
+            return;
+
         if(target != null)
             AttractObject(target.gameObject, 1);
 
@@ -62,7 +65,8 @@ public class Telekenisis : MonoBehaviour {
 
     public void shootTarget()
     {
-
+        if (target == null)
+            return;
 
         target.rotation = LeftController.transform.rot;
         
