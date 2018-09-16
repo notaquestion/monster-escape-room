@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Telekenisis : MonoBehaviour {
     public Transform target;
+
+
 
     public float PullForce = 100;
 
@@ -62,8 +65,16 @@ public class Telekenisis : MonoBehaviour {
 
     public void shootTarget()
     {
-        if(target != null)
-            target.GetComponent<Rigidbody>().velocity = target.transform.forward * 6;
+        if (target == null)
+            return;
+
+        target.rotation = LeftController.transform.rot;
+        
+
+        
+
+
+        target.GetComponent<Rigidbody>().velocity = target.transform.forward*-15;
     }
 
     public void ForgetTarget()

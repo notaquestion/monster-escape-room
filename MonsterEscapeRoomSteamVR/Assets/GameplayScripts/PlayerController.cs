@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 
         LeftController.hairTriggerDelta = 0.1f;
 
-        Debug.Log(LeftController.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger));
+        //Debug.Log(LeftController.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger));
 
         if(LeftController.GetHairTriggerDown())
         {
