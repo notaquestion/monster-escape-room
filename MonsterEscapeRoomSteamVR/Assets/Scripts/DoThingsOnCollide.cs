@@ -30,11 +30,26 @@ public class DoThingsOnCollide : MonoBehaviour {
 
             if(DestoryAndMakePrefab)
             {
+                if (InstantiateThis == null)
+                    return;
+
                 Instantiate(InstantiateThis, transform.position, transform.rotation);
 
-                Destroy(other.gameObject);
-                Destroy(transform.parent.gameObject);
+                StealthyDestory(other.gameObject);
+                StealthyDestory(transform.parent.gameObject);
+
+                InstantiateThis = null;
+                //(other.gameObject);
+                //Destroy(transform.parent.gameObject);
             }
         }
+    }
+
+    public void StealthyDestory(GameObject target)
+    {
+        if(target.transform.parent != null && (target.transform.parent.name == "Hand1" || target.transform.parent.name == "Hand2"))
+            GetComponentInParent<Valve.VR.InteractionSystem.Hand>().DetachObject(target, false);
+
+        Destroy(target, 0.2f);
     }
 }

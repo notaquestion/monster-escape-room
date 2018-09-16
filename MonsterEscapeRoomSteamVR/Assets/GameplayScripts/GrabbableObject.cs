@@ -54,6 +54,14 @@ public class GrabbableObject : MonoBehaviour {
         
         
     }
+
+    public void StealthyDestory()
+    {
+        if (transform.parent != null && (transform.parent.name == "Hand1" || transform.parent.name == "Hand2"))
+            GetComponentInParent<Valve.VR.InteractionSystem.Hand>().DetachObject(gameObject, false) ;
+        Destroy(gameObject, 0.2f);
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (breaksOnImpact == true)

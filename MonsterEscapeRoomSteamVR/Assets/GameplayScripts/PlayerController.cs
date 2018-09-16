@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         GameManager.Self.PC = this;
 
-        UI_Pointing_Text = GameObject.Find("PointingAt").GetComponent<Text>();
-        UI_Pointing_Text.text = "Blah";
 	}
 
 
